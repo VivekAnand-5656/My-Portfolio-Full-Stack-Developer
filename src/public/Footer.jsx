@@ -1,6 +1,8 @@
 import { FaGithub, FaLinkedin, FaInstagram, FaArrowUp } from "react-icons/fa";
+import { useNavigate } from "react-router-dom";
 
 export default function Footer() {
+  const navigate = useNavigate()
   return (
     <footer className="w-full bg-[#024d4d] text-white rounded-2xl mt-3">
       <div className="w-[90%] mx-auto py-10 flex flex-col md:flex-row justify-between gap-10">
@@ -42,6 +44,9 @@ export default function Footer() {
 
             <a href="#contact" className="hover:text-white duration-300">
               Contact
+            </a>
+            <a href="" onClick={()=>navigate("/adminhome")} className="hover:text-white duration-300">
+              Admin
             </a>
           </div>
         </div>
