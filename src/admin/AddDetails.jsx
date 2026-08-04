@@ -1,8 +1,10 @@
 import React, { useState } from 'react'
 import axios from "axios"
 import { IoClose, IoAdd } from "react-icons/io5"
+import { useNavigate } from 'react-router-dom'
 
 const AddDetails = () => {
+    const navigate = useNavigate()
     const api_base = "https://my-portfolio-32s5.onrender.com"
 
     const [formdata, setFormdata] = useState({
@@ -72,6 +74,11 @@ const AddDetails = () => {
             const payload = { ...formdata, skills, services, education, certification }
             const response = await axios.post(`${api_base}/admin/adddetails`, payload)
             alert("Details Saved")
+            setFormdata({
+                about: "",
+                contacts: { number: "", email: "" },
+                socialLinks: { github: "", linkedin: "", instagram: "" }
+            })
         } catch (error) {
             alert("Something went wrong")
             console.log(error.response?.data?.detail || "Something went wrong")
@@ -82,6 +89,7 @@ const AddDetails = () => {
 
     return (
         <section className='w-[95%] sm:w-[85%] max-w-2xl mx-auto my-8 flex flex-col gap-5'>
+            <button className=' p-2 rounded cursor-pointer self-start  text-white ' onClick={() => navigate("/adminhome")} >🔙</button>
 
             <form onSubmit={handle_submit} className='bg-[#f8fefe] rounded-3xl p-5 sm:p-6 flex flex-col gap-6 border border-[#024d4d]/20'>
 

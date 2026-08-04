@@ -103,6 +103,7 @@ const AdminHome = () => {
 
         } catch (error) {
             console.log(error.response?.data?.detail || "Something went wrong")
+            console.log(`Error:- ${error}`)
         }
     }
 
@@ -341,6 +342,7 @@ const AdminHome = () => {
 
     return (
         <div className='w-[95%] sm:w-[85%] max-w-4xl mx-auto my-8 flex flex-col gap-6'>
+            <button onClick={() => navigate("/adddetail")} className={addBtn}>Add Details</button>
 
             {/* Projects */}
             <div className='bg-white rounded-2xl p-5 border border-gray-200'>
