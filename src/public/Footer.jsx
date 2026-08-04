@@ -45,9 +45,9 @@ export default function Footer() {
             <a href="#contact" className="hover:text-white duration-300">
               Contact
             </a>
-            <a href="" onClick={()=>navigate("/adminhome")} className="hover:text-white duration-300">
-              Admin
-            </a>
+            <button className="hover:text-white duration-300 text-justify "
+            onClick={()=> navigate("/adminhome")}
+            >Admin</button> 
           </div>
         </div>
 
